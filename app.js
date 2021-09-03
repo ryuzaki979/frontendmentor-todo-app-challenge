@@ -13,8 +13,6 @@ modeButtons.forEach((button)=>{
         let target = button.classList[1]
         changeMode(target)
         saveModeToLocalStorage(target)
-        
-        
     })
 })
 
@@ -31,12 +29,12 @@ function changeMode(target){
     mode.classList.toggle('change-mode');
 }
 function saveModeToLocalStorage(target){
-    localStorage.getItem('mode')?localStorage.setItem('mode',JSON.stringify(target)):localStorage.setItem('mode',JSON.stringify(dark-button))
+    localStorage.setItem('mode', JSON.stringify(target))
 }
 window.addEventListener('DOMContentLoaded',runMode)
 
 function runMode(){
-    let target =JSON.parse (localStorage.getItem('mode'));
+    let target = JSON.parse(localStorage.getItem('mode'))
     if(target == "dark-button"){
         mode.classList.add('change-mode');
     }
@@ -133,7 +131,7 @@ const getLocalStorage = ()=>{
 
 window.addEventListener('DOMContentLoaded',runLocalStorage)
 function runLocalStorage (){
-    const items = JSON.parse(localStorage.getItem('item'))
+    const items = getLocalStorage()
     items.map((item)=>{
         create(item.value,item.id,item.check)
     })
@@ -201,7 +199,7 @@ function calculateLeftTodos(){
         }
     })
     taskLeft.textContent =completed
-    taskCount.textContent = JSON.parse(localStorage.getItem('item')).length
+    taskCount.textContent = getLocalStorage().length
 }
 
 const clearCompleted = ()=>{
@@ -305,53 +303,53 @@ const callingDragFunctionality = (draggables)=>{
   }
 }
 
-const saveDraggedToLocalStorage =(draggables)=>{
-    let sortedArray =localStorage.getItem('sortedList')?JSON.parse (localStorage.getItem('sortedList')):[]
-       draggables.forEach(draggable=>{
-        const rect = draggable.getBoundingClientRect()
-        let top =rect.top
-        let left =rect.left
-        let draggingID = draggable.dataset.id
+// const saveDraggedToLocalStorage =(draggables)=>{
+//     let sortedArray =localStorage.getItem('sortedList')?JSON.parse (localStorage.getItem('sortedList')):[]
+//        draggables.forEach(draggable=>{
+//         const rect = draggable.getBoundingClientRect()
+//         let top =rect.top
+//         let left =rect.left
+//         let draggingID = draggable.dataset.id
 
-        let items =JSON.parse( localStorage.getItem('item'))
+//         let items =JSON.parse( localStorage.getItem('item'))
 
         
-        items.forEach(item=>{
-            if(item.id == draggingID){
-                sortedArray.push(
-                    {
-                        id:item.id,
-                        top,
-                        left
-                    }
-                )
-            }
-        })
-        localStorage.setItem('sortedLists',JSON.stringify(sortedArray))
+//         items.forEach(item=>{
+//             if(item.id == draggingID){
+//                 sortedArray.push(
+//                     {
+//                         id:item.id,
+//                         top,
+//                         left
+//                     }
+//                 )
+//             }
+//         })
+//         localStorage.setItem('sortedLists',JSON.stringify(sortedArray))
         
-       })
-}
+//        })
+// }
 
-const sortedList=()=>{
-    const lists =JSON.parse (localStorage.getItem('sortedLists'))
-    lists.forEach(list=>{
-        setPosition(list.id,list.top,list.left)
-    })
-}
+// const sortedList=()=>{
+//     const lists =JSON.parse (localStorage.getItem('sortedLists'))
+//     lists.forEach(list=>{
+//         setPosition(list.id,list.top,list.left)
+//     })
+// }
 
-const setPosition=(id,top,left)=>{
-    const items = document.querySelectorAll('.todo')
-    items.forEach(item=>{
-        if(item.dataset.id == id){
-            console.log(`prev top = ${item.getBoundingClientRect().top} current top is = ${top}`)
-            todoContainer.style.position ='relative'
-            // item.style.position='absolute'
-            item.style.top = top+ 'px'
-            item.style.width= 100+ '%'
-            console.log('setting')
-        }
-    })
-}
+// const setPosition=(id,top,left)=>{
+//     const items = document.querySelectorAll('.todo')
+//     items.forEach(item=>{
+//         if(item.dataset.id == id){
+//             console.log(`prev top = ${item.getBoundingClientRect().top} current top is = ${top}`)
+//             todoContainer.style.position ='relative'
+//             // item.style.position='absolute'
+//             item.style.top = top+ 'px'
+//             item.style.width= 100+ '%'
+//             console.log('setting')
+//         }
+//     })
+// }
 
-window.addEventListener('DOMContentLoaded',sortedList);
+// window.addEventListener('DOMContentLoaded',sortedList);
 
