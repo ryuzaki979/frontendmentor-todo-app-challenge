@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root{
+    /* Primary */
+
+--brightBlue: hsl(220, 98%, 61%);
+--white: #fff;
+--checkBackground: linear-gradient( hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+
+/* Neutral */
+
+/* Light Theme */
+
+--veryLightGray: hsl(0, 0%, 98%);
+--veryLightGrayishBlue: hsl(236, 33%, 92%);
+--lightGrayishBlue: hsl(233, 11%, 84%);
+--darkGrayishBlue: hsl(236, 9%, 61%);
+--veryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+/* darkTheme */
+
+--bg: hsl(235, 21%, 11%);
+--bg-panel: hsl(235, 24%, 19%);
+--border: hsl(233, 14%, 35%);
+--color-text: #fff;
+--desktop-url:./images/bg-mobile-dark.jpg
+/* fonts */
+--josefinSans: 'Josefin Sans', sans-serif;
+}
+
+html[data-theme='dark'] {
+    --bg: #fff;
+    --bg-panel: var(--veryLightGrayishBlue);
+    --color-headings: #3694FF;
+    --color-text: #000;
+    --border: hsl(0, 0%, 98%);
+}
+
+/* Global class */
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button{
+    background: unset;
+    border: unset;
+    cursor: pointer;
+    transition: all 1s ease;
+    padding: .25rem 1rem;
+    color: var(--color-text);
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg);
+    position: relative;
+    font-family: var(--josefinSans);
+    color: var(--color-text);
+}
+
+header{
+    height: 30%;
+    width: 100%;
+    background: url(./images/bg-mobile-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.app{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* border: 3px solid red; */
+    width: 85%;
+}
+.app-header{
+    margin-bottom: 2rem;
+}
+.app-header h1{
+    color: var(--white) ;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.dark-button{
+    display: none;
+}
+.mode.change-mode .light-button{
+    display: none;
+}
+.mode.change-mode .dark-button{
+    display: block;
+}
+
+.button img{
+    width: 75%;
+}
+
+/* input */
+
+.input-container,.todo,.app-footer,.todo-manager{
+    background: var(--bg-panel);
+    height: 55px;
+    padding: .25rem 1rem;
+    gap: 2rem;
+    border-radius: 5px;
+    
+}
+.circle{
+    width: 20px;
+    height:20px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+}
+form{
+    flex:1;
+}
+.input{
+    background: unset;
+    height: 100%;
+   width: 100%;
+    border: unset;
+    outline: unset;
+    font-size: 1rem;
+    font-family: inherit;
+    color: Var(--color-text)
+}
+.todo-container{
+    margin-top: 1rem;
+    position: relative;
+    top: 10px;
+}
+.todo{
+    padding: absolute;
+}
+/* uncheck */
+.todo-container .circle .check-icon{
+    display: none;
+}
+/* when checked */
+.todo.checked .circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--checkBackground);
+}
+.todo.checked .circle .check-icon{
+    display: unset;
+}
+.todo.checked .todo-title{
+    text-decoration: 2px red line-through;
+}
+.check-icon{
+    pointer-events: none;
+}
+.check,.delete-icon{
+    cursor: pointer;
+}
+.todo{
+   
+    list-style-type: none;
+    border-radius: unset;
+    border-bottom: 1px solid var(--border);
+}
+.draggable {
+    
+    cursor: move;
+    user-select: none;
+  }
+  
+  .draggable.dragging {
+    background: var(--veryDarkGrayishBlue);
+  }
+.todo.hide{
+    display: none;
+}
+
+.todo-title{
+    flex: 1;
+}
+
+.todo:first-child{
+    border-radius: 5px 5px  0px 0 ;
+}
+/* .todo:last-child{
+    border-radius: 0px 0px  5px 5px;
+    border-bottom: unset;
+} */
+
+.todo-manager{
+    margin-bottom: 1rem;
+    border-radius: 0px 0px  5px 5px;
+}
+
+.todo-manager.hide{
+    display: none;
+}
+.todo-manager.show{
+    display: flex;
+}
+
+/* app footer */
+.app-footer{
+    justify-content: center;
+}
+
+.app-footer .button:hover{
+    color: var(--brightBlue);
+}
+
+
+@media only screen and (min-width: 375px) {
+    .app{
+        width: 40%;
+        min-width: 400px;
+    }
+    header{
+        background: url(./images/bg-desktop-dark.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+  }
+
+  html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+

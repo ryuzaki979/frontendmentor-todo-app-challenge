@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Todo app</title>
+
+  
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <header>
+    <!-- background image -->
+  </header>
+
+  <main class="app">
+    <!-- app header -->
+    <div class="app-header flex">
+      <h1>Todo</h1>
+      <div class="mode">
+        <button class="button dark-button">
+          <img src="./images/icon-moon.svg" alt="">
+        </button>
+        <button class="button light-button">
+          <img src="./images/icon-sun.svg" alt="">
+        </button>
+      </div>
+    </div>
+    <!-- input -->
+    <div class="input-container flex">
+      <div class="circle"></div>
+      <form action="#">
+        <input type="text" class="input" placeholder="Currently typing">
+      </form>
+    </div>
+    <!-- lists -->
+    <ul class="todo-container">
+
+      <!-- <li class="todo  flex">
+        <div class="circle check">
+          <img src="./images/icon-check.svg"  class="check-icon"alt="">
+        </div>
+        <p class="todo-title">Helloo</p>
+        <img src="./images/icon-cross.svg" class="delete-icon" alt="">
+      </li> -->
+
+    </ul>
+    <div class="todo-manager hide flex">
+      <p>Total Task <span class="task-count"> 2</span></p>
+      <p> <span class="task-left"> </span>Items Left</p>
+      <button class="button clear-button">Clear Completed</button>
+    </div>
+    <div class="app-footer action-box flex">
+      <button class="button all">All</button>
+      <button class="button active">Active</button>
+      <button class="button completed">Completed</button>
+    </div>
+  </main>
+
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  
+  <script src="./app.js"></script>
+</body>
+</html>
